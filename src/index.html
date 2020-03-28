@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CurrencyConverter</title>
+
+</head>
+<body>
+<div class="main">
+    <div class="actual">
+        <h1>Actual exchange rate</h1>
+        <h3>All currencies quoted against the dollar (base currency)</h3>
+
+
+           <table class="table">
+               <tr>
+                   <th>Currency</th>
+                   <th>Spot</th>
+                   <th>Last Trend</th>
+               </tr>
+               <tr>
+                   <td>1</td>
+                   <td>2</td>
+                   <td>3</td>
+               </tr>
+               <tr>
+                   <td>1111</td>
+                   <td>22222</td>
+                   <td>3333</td>
+               </tr>
+               <tr>
+                   <td>1</td>
+                   <td>2</td>
+                   <td>3</td>
+               </tr>
+               <tr>
+                   <td>1</td>
+                   <td>2</td>
+                   <td>3</td>
+               </tr>
+
+
+           </table>
+    </div>
+    <div class="converter">
+        <div class="dropdown">
+            <label for="initial">Initial</label>
+            <select name="initial" id="initial">
+                <option value="dollar">Dollar</option>
+                <option value="euro">Euro</option>
+            </select>
+            <label for="target">Target</label>
+            <select name="target" id="target">
+
+            </select>
+        </div>
+        <form action="#" class="form">
+        <div class="inputs">
+            <input type="number" name="source" step = 10 min="0" value="0.00">
+            <input type="number" name="calculated" step = 10 min="0" value="0.00">
+        </div>
+            <button type="submit" class="btn btn-submit">Calc</button>
+        </form>
+        <div class="reverse">
+            <a href="#">
+                <img src="/src/assets/images/subway_round-arrow-1.svg" alt="reverse">
+            </a>
+        </div>
+
+    </div>
+    <div class="history">
+    history
+    </div>
+
+</div>
+</body>
+</html>

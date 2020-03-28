@@ -1,0 +1,57 @@
+.actual{
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+  border-radius: 4px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1000px;
+  .table{
+  background-color: var(--color-borders);
+  width: 100%;
+    border-spacing: 1px;
+    border-color: var(--color-borders);
+    tr{
+
+      &:nth-child(even){
+        background: var(--color-odd-rows);
+      }
+      &:nth-child(odd){
+        background: var(--color-even-rows);
+      }
+    }
+    th{
+
+      background-color: var(--color-blue);
+      color: var(--color-text-white );
+      font-size: 2rem;
+      font-weight: 400;
+
+      :not(:last-child){
+        border-right: 2px solid var(--color-borders);
+      }
+
+    }
+    td{
+      font-size: 1.2rem;
+    }
+  /*  td{
+      border-right: 2px solid var(--color-borders);
+    }*/
+  }
+}
+/*
+td : 12px
+th: 20 px
+flags 24x24
+arrows 37x32
+th background color #2d9cdb  rgb(45,156,219) text color th rgb(234,234,234)
+td background color #e0e0e0 rgb(224,224,224)
+td background color (nth-child(2n))#f2f2f2 rgb(242,242,242)
+borders color #bdbdbd rgb(189,189,189)
+green arrow : rgb(18,212,96)
+red arrow : #d42612
+*/

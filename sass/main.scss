@@ -1,0 +1,39 @@
+@import "utilities";
+@import "actual";
+@import "converter";
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../src/assets/fonts/Montserrat-ExtraLight.ttf") format('truetype');
+  src: url("../src/assets/fonts/Montserrat-Italic.ttf") format('truetype');
+  src: url("../src/assets/fonts/Montserrat-Bold.ttf") format('truetype');
+  src: url("../src/assets/fonts/Montserrat-Regular.ttf") format('truetype');
+}
+
+
+
+
+*,*::after,*::before{
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+html{
+box-sizing: border-box;
+  font-size: 62.5%;
+
+}
+body{
+  font-family:'Montserrat', sans-serif;
+  font-weight: 700;
+  line-height: 1.6;
+}
+h1{
+  margin: 1rem auto;
+  text-align: center;
+}
+.main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

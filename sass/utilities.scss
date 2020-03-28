@@ -1,0 +1,21 @@
+:root{
+  --color-blue : #2d9cdb;
+  --color-text-white : rgb(234,234,234);
+  --color-borders : rgb(190,190,190);
+  --color-odd-rows: rgb(224,224,224);
+  --color-even-rows:rgb(242,242,242);
+}
+::selection{
+  color: #2d9cdb;
+}
+.btn{
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: 0 solid transparent;
+  padding: 0.7rem 2rem;
+  background-color: #2d9cdb;
+  color: var(--color-text-white);
+  width: 60%;
+
+  cursor: pointer;
+}
