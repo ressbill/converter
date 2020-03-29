@@ -36,7 +36,16 @@
 
     }
     td{
+
       font-size: 1.2rem;
+      &:first-child{
+        display: grid;
+        grid-template-columns: 30% 20% 50%;
+      }
+      .fullName{
+        grid-column: 3/4;
+      }
+
     }
   /*  td{
       border-right: 2px solid var(--color-borders);
