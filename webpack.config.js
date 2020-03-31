@@ -1,7 +1,7 @@
-const {CleanWebpackPlugin} = require("clean-webpack-plugin") ;
-
 const path = require ('path')
+const {CleanWebpackPlugin} = require("clean-webpack-plugin") ;
 const HTMLPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 module.exports = {
     entry: './src/app.js',
     output: {
@@ -15,7 +15,13 @@ module.exports = {
         new HTMLPlugin({
             template: "./src/index.html"
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new CopyWebpackPlugin([
+            {
+                from: path.resolve(__dirname,'src/assets/images') ,
+                to: path.resolve(__dirname, 'public')
+            }
+        ])
 
     ],
     module: {

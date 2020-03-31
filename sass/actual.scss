@@ -1,7 +1,7 @@
 .actual{
   margin-bottom: 2rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
   padding: 1rem;
   border-radius: 4px;
   text-align: center;
@@ -9,11 +9,34 @@
   flex-direction: column;
   width: 100%;
   max-width: 1000px;
+  .table__header{
+    width: calc(100% - 8px);
+    display: grid;
+    background-color: var(--color-blue);
+    color: var(--color-text-white );
+    font-size: 2rem;
+    font-weight: 400;
+
+    .th--1{
+      grid-column: 1/2;
+    }
+    .th--2{
+      grid-column: 2/3;
+    }
+    .th--3{
+      grid-column: 3/4;
+    }
+  }
+  .header__row{
+    display: grid;
+    grid-template-columns:70% 15% 15% ;
+  }
+
   .table{
   background-color: var(--color-borders);
   width: 100%;
-    border-spacing: 1px;
-    border-color: var(--color-borders);
+  border-spacing: 1px;
+  border-color: var(--color-borders);
     tr{
 
       &:nth-child(even){
@@ -23,35 +46,57 @@
         background: var(--color-even-rows);
       }
     }
-    th{
 
-      background-color: var(--color-blue);
-      color: var(--color-text-white );
-      font-size: 2rem;
-      font-weight: 400;
-
-      :not(:last-child){
-        border-right: 2px solid var(--color-borders);
-      }
-
-    }
     td{
-
-      font-size: 1.2rem;
+      position: relative;
+      font-size: 1.4rem;
       &:first-child{
         display: grid;
-        grid-template-columns: 30% 20% 50%;
+        grid-template-columns: 20% 20% 60%;
       }
       .fullName{
         grid-column: 3/4;
       }
+      .abr{
+        grid-column: 2/3;
+        justify-content: start;
+        text-align: start;
+      }
+      .flag{
 
+        img{
+          position: absolute;
+          height: 115%;
+          transform: translateY(-8%);
+
+        }
+      }
+
+      img{
+        position: absolute;
+        transform: translateX(-50%) translateY(-50%);
+        width: 3rem;
+
+      }
+
+    }
+    .trend{
+      width: 15%;
+    }
+    .spot{
+      width: 15%;
     }
   /*  td{
       border-right: 2px solid var(--color-borders);
     }*/
   }
 }
+.scroll{
+  height: 550px;
+  overflow-y: scroll;
+
+}
+
 /*
 td : 12px
 th: 20 px
