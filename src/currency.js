@@ -23,7 +23,7 @@ export class Currency{
 
                        yestData = data
                     }).then(async () => {
-                       if (yestData.date !== rates.date){
+                       if (yestData.date === rates.date){
 
                           await  previousDayRates(1).then(data => data.json()).then(data =>{
                                yestData = data
@@ -32,7 +32,8 @@ export class Currency{
                        }
 
                     })
-
+              console.log(yestData)
+              console.log('RATES',rates)
              const prevRates = yestData.rates;
              const prevValues = Object.values(prevRates).filter(rate => +rate !== 1);
              let trend = [];
@@ -90,14 +91,21 @@ export class Currency{
                 const url = flags.get(a)
                 flagsUrl.push(url)
              }
-             return {
+             const fullNames = fullNaming(amount, curNames)
+             return [{
                  cur :  Object.keys(rates).filter(rate => rate !== base),
                  spot : Object.values(rates).filter(rate => +rate !== 1).map(spot => spot.toString().slice(0,5)),
-                 fullName :  fullNaming(amount, curNames),
+                 fullName :  fullNames,
                  amount: amount,
                  trend: trend,
                  flags: flagsUrl
-              }
+              },
+              {
+                 cur : Object.keys(rates),
+                 spot : Object.values(rates),
+                 amount: amount +1,
+
+              }]
 
 
           })
