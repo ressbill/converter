@@ -16,6 +16,8 @@
   background-color: #2d9cdb;
   color: var(--color-text-white);
   width: 60%;
-
+  &:active,&:focus{
+    outline: none;
+  }
   cursor: pointer;
 }

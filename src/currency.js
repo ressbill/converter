@@ -7,109 +7,105 @@ export class Currency{
 
 
 }
-   static   createModel (base){
-         return   Currency.fetchData(base)
-          .then( data =>  data.rates )
-          .then( async rates => {
-             const amount = Object.keys(rates).length -1;
-             const curNames = Object.keys(rates).filter(rate => rate !== base);
-             const curValues = Object.values(rates).filter(rate => +rate !== 1);
-           /*    console.log(amount)
-               console.log(curNames)*/
-           let yestData;
-                await  previousDayRates()
+
+    static createModel(base) {
+        return Currency.fetchData(base)
+            .then(async data => {
+                const  rates = data.rates;
+                const amount = Object.keys(rates).length - 1;
+                const curNames = Object.keys(rates).filter(rate => rate !== base);
+                const curValues = Object.values(rates).filter(rate => +rate !== 1);
+
+                let yestData;
+                await previousDayRates()
                     .then(data => data.json())
-                    .then(data=> {
-
-                       yestData = data
+                    .then(data => {
+                        yestData = data
                     }).then(async () => {
-                       if (yestData.date === rates.date){
-
-                          await  previousDayRates(1).then(data => data.json()).then(data =>{
-                               yestData = data
-
-                            } )
-                       }
+                        if (yestData.date === data.date) {
+                            await previousDayRates(1).then(data => data.json()).then(data => {
+                                yestData = data
+                            })
+                        }
 
                     })
-              console.log(yestData)
-              console.log('RATES',rates)
-             const prevRates = yestData.rates;
-             const prevValues = Object.values(prevRates).filter(rate => +rate !== 1);
-             let trend = [];
-             for(let i = 0; i < amount; i++){
-                if(prevValues[i] < curValues[i] ){
-                   trend[i] = '../src/assets/images/bx_bx-trending-up.svg'
-                   continue
+                console.log(yestData)
+
+                const prevRates = yestData.rates;
+                const prevValues = Object.values(prevRates).filter(rate => +rate !== 1);
+                let trend = [];
+                for (let i = 0; i < amount; i++) {
+                    if (prevValues[i] < curValues[i]) {
+                        trend[i] = '../src/assets/images/bx_bx-trending-up.svg'
+                        continue
+                    }
+                    if (prevValues[i] > curValues[i]) {
+                        trend[i] = '../src/assets/images/bx_bx-trending-down.svg'
+
+                    } else {
+                        trend[i] = 'STABILNOST'
+                    }
                 }
-                if(prevValues[i] > curValues[i] ){
-                   trend[i] = '../src/assets/images/bx_bx-trending-down.svg'
+                const flags = new Map([
+                    ['CAD', '../src/assets/images/flags/canada.svg'],
+                    ['HKD', '../src/assets/images/flags/hong-kong-sar-china.svg'],
+                    ['ISK', '../src/assets/images/flags/iceland.svg'],
+                    ['PHP', '../src/assets/images/flags/philippines.svg'],
+                    ['DKK', '../src/assets/images/flags/denmark.svg'],
+                    ['HUF', '../src/assets/images/flags/hungary.svg'],
+                    ['CZK', '../src/assets/images/flags/czechia.svg'],
+                    ['GBP', '../src/assets/images/flags/united-kingdom.svg'],
+                    ['RON', '../src/assets/images/flags/romania.svg'],
+                    ['SEK', '../src/assets/images/flags/sweden.svg'],
+                    ['IDR', '../src/assets/images/flags/india.svg'],
+                    ['INR', '../src/assets/images/flags/indonesia.svg'],
+                    ['BRL', '../src/assets/images/flags/brazil.svg'],
+                    ['RUB', '../src/assets/images/flags/russia.svg'],
+                    ['HRK', '../src/assets/images/flags/croatia.svg'],
+                    ['JPY', '../src/assets/images/flags/japan.svg'],
+                    ['THB', '../src/assets/images/flags/thailand.svg'],
+                    ['CHF', '../src/assets/images/flags/switzerland.svg'],
+                    ['EUR', '../src/assets/images/flags/european-union.svg'],
+                    ['MYR', '../src/assets/images/flags/malaysia.svg'],
+                    ['BGN', '../src/assets/images/flags/bulgaria.svg'],
+                    ['TRY', '../src/assets/images/flags/turkey.svg'],
+                    ['CNY', '../src/assets/images/flags/china.svg'],
+                    ['NOK', '../src/assets/images/flags/norway.svg'],
+                    ['NZD', '../src/assets/images/flags/new-zealand.svg'],
+                    ['ZAR', '../src/assets/images/flags/south-africa.svg'],
+                    ['MXN', '../src/assets/images/flags/mexico.svg'],
+                    ['SGD', '../src/assets/images/flags/singapore.svg'],
+                    ['AUD', '../src/assets/images/flags/australia.svg'],
+                    ['ILS', '../src/assets/images/flags/israel.svg'],
+                    ['KRW', '../src/assets/images/flags/south-korea.svg'],
+                    ['PLN', '../src/assets/images/flags/poland.svg']
 
+                ]);
+                let flagsUrl = [];
+                for (let i = 0; i < amount; i++) {
+                    let a = curNames[i]
+                    const url = flags.get(a)
+                    flagsUrl.push(url)
                 }
-                else {
-                   trend[i] = 'STABILNOST'
-                }
-             }
-            const flags = new Map([
-                ['CAD' , '../src/assets/images/flags/canada.svg'],
-                ['HKD', '../src/assets/images/flags/hong-kong-sar-china.svg'],
-                ['ISK','../src/assets/images/flags/iceland.svg'],
-                ['PHP','../src/assets/images/flags/philippines.svg'],
-                ['DKK','../src/assets/images/flags/denmark.svg'],
-                ['HUF','../src/assets/images/flags/hungary.svg'],
-                ['CZK','../src/assets/images/flags/czechia.svg'],
-                ['GBP','../src/assets/images/flags/united-kingdom.svg'],
-                ['RON','../src/assets/images/flags/romania.svg'],
-                ['SEK','../src/assets/images/flags/sweden.svg'],
-                ['IDR','../src/assets/images/flags/india.svg'],
-                ['INR','../src/assets/images/flags/indonesia.svg'],
-                ['BRL','../src/assets/images/flags/brazil.svg'],
-                ['RUB','../src/assets/images/flags/russia.svg'],
-                ['HRK','../src/assets/images/flags/croatia.svg'],
-                ['JPY','../src/assets/images/flags/japan.svg'],
-                ['THB','../src/assets/images/flags/thailand.svg'],
-                ['CHF','../src/assets/images/flags/switzerland.svg'],
-                ['EUR','../src/assets/images/flags/european-union.svg'],
-                ['MYR','../src/assets/images/flags/malaysia.svg'],
-                ['BGN','../src/assets/images/flags/bulgaria.svg'],
-                ['TRY','../src/assets/images/flags/turkey.svg'],
-                ['CNY','../src/assets/images/flags/china.svg'],
-                ['NOK','../src/assets/images/flags/norway.svg'],
-                ['NZD','../src/assets/images/flags/new-zealand.svg'],
-                ['ZAR','../src/assets/images/flags/south-africa.svg'],
-                ['MXN','../src/assets/images/flags/mexico.svg'],
-                ['SGD','../src/assets/images/flags/singapore.svg'],
-                ['AUD','../src/assets/images/flags/australia.svg'],
-                ['ILS','../src/assets/images/flags/israel.svg'],
-                ['KRW','../src/assets/images/flags/south-korea.svg'],
-                ['PLN','../src/assets/images/flags/poland.svg']
+                const fullNames = fullNaming(amount, curNames)
+                return [{
+                    cur: Object.keys(rates).filter(rate => rate !== base),
+                    spot: Object.values(rates).filter(rate => +rate !== 1).map(spot => spot.toString().slice(0, 5)),
+                    fullName: fullNames,
+                    amount: amount,
+                    trend: trend,
+                    flags: flagsUrl
+                },
+                    {
+                        cur: Object.keys(rates),
+                        spot: Object.values(rates),
+                        amount: amount + 1,
 
-             ]);
-             let flagsUrl = [];
-             for(let i = 0 ; i < amount; i++){
-              let a =   curNames[i]
-                const url = flags.get(a)
-                flagsUrl.push(url)
-             }
-             const fullNames = fullNaming(amount, curNames)
-             return [{
-                 cur :  Object.keys(rates).filter(rate => rate !== base),
-                 spot : Object.values(rates).filter(rate => +rate !== 1).map(spot => spot.toString().slice(0,5)),
-                 fullName :  fullNames,
-                 amount: amount,
-                 trend: trend,
-                 flags: flagsUrl
-              },
-              {
-                 cur : Object.keys(rates),
-                 spot : Object.values(rates),
-                 amount: amount +1,
-
-              }]
+                    }]
 
 
-          })
-   }
+            })
+    }
 }
 
 
@@ -124,15 +120,15 @@ function previousDayRates(dateIsEqual = 0) {
       if (today.getDay() === 0){
          date =   getPreviousDate(2)
       }
-      if (today.getDay() === 6){
-         date =  getPreviousDate(1)
-      }
+      // if (today.getDay() === 6){
+      //    date =  getPreviousDate(1)
+      // }
       else{
          date =  getPreviousDate(1)
       }
 
    } else
-      date =   getPreviousDate(4)
+      date =   getPreviousDate(2)
 
    const str =  convertedDateForURL(date)
 

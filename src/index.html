@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CurrencyConverter</title>
+    <title>Currency Converter</title>
     <link rel="icon" href="../src/assets/images/favicon.ico" type="image/x-icon">
 
 </head>
@@ -39,15 +39,15 @@
 
             </select>
         </div>
-        <form action="#" class="form">
+        <form action="#" class="form" id="form">
         <div class="inputs">
-            <input type="number" name="source" step = 10 min="0" value="0.00">
-            <input type="number" name="calculated" step = 10 min="0" value="0.00">
+            <input type="number" name="source" step = 10 min="0" value="0.00" id="input">
+            <input type="number" name="calculated" step = 10 min="0" value="0.00" id="output">
         </div>
-            <button type="submit" class="btn btn-submit">Calc</button>
+            <button type="submit" disabled class="btn btn-submit" id="btn">Save</button>
         </form>
         <div class="reverse">
-            <a href="#">
+            <a href="#" id="convert">
                 <img src="../src/assets/images/subway_round-arrow-1.svg" alt="reverse">
             </a>
         </div>
