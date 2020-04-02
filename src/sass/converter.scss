@@ -1,6 +1,7 @@
 .converter{
   display: flex;
-  margin: 3rem;
+  margin: 0rem 3rem 3rem 10rem;
+
   justify-content: center;
   align-items: center;
   .inputs{
@@ -29,16 +30,12 @@
     select{
       margin-bottom: 2.8rem;
       margin-right: 3rem;
-
     }
-
   }
   .form{
     display: flex;
     flex-direction: column;
     align-items: center;
-
-
   }
   .reverse{
     margin: 3rem;

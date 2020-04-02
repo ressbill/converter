@@ -1,4 +1,4 @@
-import '../sass/main.scss'
+import './sass/main.scss'
 import {Currency} from "./currency";
 import utilities from "./utulities";
 import {conversion} from "./convert";
@@ -8,7 +8,29 @@ const initial = document.getElementById('initial');
 const target = document.getElementById('target');
 const button = document.getElementById('btn');
 const convert = document.getElementById('convert')
+const marks = document.getElementById('marks')
 
+
+initial.addEventListener('focus', ()=>{
+    initial.size = "8";
+})
+initial.addEventListener('blur', ()=>{
+    initial.size = "1";
+})
+initial.addEventListener('change', ()=>{
+    initial.size = "1";
+    initial.blur()
+})
+target.addEventListener('focus', ()=>{
+    target.size = "8";
+})
+target.addEventListener('blur', ()=>{
+    target.size = "1";
+})
+target.addEventListener('change', ()=>{
+    target.size = "1";
+    target.blur()
+})
 Currency.createModel('USD').then(model => {
     createTable (model[0])
     fullFillSelections(model[1])
@@ -42,7 +64,23 @@ function createTable(data) {
     }
 
 }
+function createSaved(data) {
+    for(let i = 0; i < 5; i++){
+        const mark =  document.createElement('div')
+        mark.classList.add('marks__mark')
+        mark.insertAdjacentHTML('afterbegin', `
+    <div>Rub</div>
+    <div>Rub</div>
+    <div>Rub</div>
+    <div>Rub</div>
+    <div>Rub</div>
+    
+    `)
+        marks.appendChild(mark)
 
+    }
+
+}
 
 
 function fullFillSelections(data) {

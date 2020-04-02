@@ -1,0 +1,32 @@
+.history{
+  background-color:#22d1ee  ;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: absolute;
+  top: 11rem;
+  right: 1.55%;
+  color: #0e153a;
+
+  @media only screen and (max-width: 1800px)  {
+    position: relative;
+    display: block;
+  }
+  .marks{
+    display: flex;
+    flex-direction: column;
+    &__mark{
+      display: grid;
+      grid-template-columns: repeat(4,90px) 150px ;
+
+    }
+  }
+  .marks__header{
+    color: #3d5af1;
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+    display: grid;
+    grid-template-columns: repeat(4,90px) 150px ;
+  }
+
+}

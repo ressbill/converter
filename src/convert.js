@@ -11,10 +11,19 @@ export function conversion() {
         .then(data => {
            const result = convert(data,inputValue,target)
             console.log(result)
-            if (+inputValue > 999){
-                output.value = result.toFixed(0);
-            } else
-            output.value = result.toFixed(3);
+            const firstDecimalNumber = result.toString().split('.')[1]
+            if(inputValue === result){
+                output.value = inputValue;
+            }else{
+                if (+inputValue > 999){
+                    output.value = result.toFixed(1);
+                } else{
+                    output.value = result.toFixed(3);
+                }
+
+            }
+
+
         } )
 
 }

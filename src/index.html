@@ -31,7 +31,7 @@
     <div class="converter">
         <div class="dropdown">
             <label for="initial">Initial</label>
-            <select name="initial" id="initial">
+            <select name="initial" id="initial" >
 
             </select>
             <label for="target">Target</label>
@@ -47,14 +47,22 @@
             <button type="submit" disabled class="btn btn-submit" id="btn">Save</button>
         </form>
         <div class="reverse">
-            <a href="#" id="convert">
-                <img src="../src/assets/images/subway_round-arrow-1.svg" alt="reverse">
+            <a href="#" id="convert" class="convert">
+                <img src="../src/assets/images/subway_round-arrow-1.svg" class="svg" alt="reverse">
             </a>
         </div>
 
     </div>
     <div class="history">
-    history
+        <h2 class="mb-1 mt-2">Saved Book</h2>
+        <div class="marks" id="marks">
+            <div class="marks__header">
+                <div>From</div><div>To</div><div>Initial value</div><div>Result</div><div>Time</div>
+            </div>
+            <div class="marks__mark">
+                <div>USD</div><div>Rub</div><div>150</div><div>1500.32</div><div>4/1/2020</div>
+            </div>
+        </div>
     </div>
 
 </div>

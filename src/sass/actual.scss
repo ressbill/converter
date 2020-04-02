@@ -1,5 +1,5 @@
 .actual{
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   margin-left: 0;
   margin-right: 0;
   padding: 1rem;
@@ -12,8 +12,8 @@
   .table__header{
     width: calc(100% - 8px);
     display: grid;
-    background-color: var(--color-blue);
-    color: var(--color-text-white );
+    background-color: #3d5af1;
+    color: #e2f3f5;
     font-size: 2rem;
     font-weight: 400;
 
