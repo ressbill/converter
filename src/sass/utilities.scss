@@ -13,11 +13,25 @@
   border-radius: 8px;
   border: 0 solid transparent;
   padding: 0.7rem 2rem;
-  background-color: #2d9cdb;
-  color: var(--color-text-white);
+  background-color: #e2f3f5;
+  color: #0e153a;
   width: 60%;
+  font-weight: 700;
+  transition: background .5s;
+  background-size: 440%;
   &:active,&:focus{
     outline: none;
   }
   cursor: pointer;
+  &:hover{
+    background-image: linear-gradient( 120deg, #e2f3f5 0% ,#e2f3f5 30%, #22d1ee  100%) ;
+    background-position: 100%;
+    color: #0e153a;
+  }
+}
+.mb-1{
+  margin-bottom: 1rem;
+}
+.mt-2{
+  margin-top: 1rem;
 }
