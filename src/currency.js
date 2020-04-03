@@ -36,49 +36,49 @@ export class Currency{
                 let trend = [];
                 for (let i = 0; i < amount; i++) {
                     if (prevValues[i] < curValues[i]) {
-                        trend[i] = '../src/assets/images/bx_bx-trending-up.svg'
+                        trend[i] = './assets/images/bx_bx-trending-up.svg'
                         continue
                     }
                     if (prevValues[i] > curValues[i]) {
-                        trend[i] = '../src/assets/images/bx_bx-trending-down.svg'
+                        trend[i] = './assets/images/bx_bx-trending-down.svg'
 
                     } else {
                         trend[i] = 'STABILNOST'
                     }
                 }
                 const flags = new Map([
-                    ['CAD', '../src/assets/images/flags/canada.svg'],
-                    ['HKD', '../src/assets/images/flags/hong-kong-sar-china.svg'],
-                    ['ISK', '../src/assets/images/flags/iceland.svg'],
-                    ['PHP', '../src/assets/images/flags/philippines.svg'],
-                    ['DKK', '../src/assets/images/flags/denmark.svg'],
-                    ['HUF', '../src/assets/images/flags/hungary.svg'],
-                    ['CZK', '../src/assets/images/flags/czechia.svg'],
-                    ['GBP', '../src/assets/images/flags/united-kingdom.svg'],
-                    ['RON', '../src/assets/images/flags/romania.svg'],
-                    ['SEK', '../src/assets/images/flags/sweden.svg'],
-                    ['IDR', '../src/assets/images/flags/india.svg'],
-                    ['INR', '../src/assets/images/flags/indonesia.svg'],
-                    ['BRL', '../src/assets/images/flags/brazil.svg'],
-                    ['RUB', '../src/assets/images/flags/russia.svg'],
-                    ['HRK', '../src/assets/images/flags/croatia.svg'],
-                    ['JPY', '../src/assets/images/flags/japan.svg'],
-                    ['THB', '../src/assets/images/flags/thailand.svg'],
-                    ['CHF', '../src/assets/images/flags/switzerland.svg'],
-                    ['EUR', '../src/assets/images/flags/european-union.svg'],
-                    ['MYR', '../src/assets/images/flags/malaysia.svg'],
-                    ['BGN', '../src/assets/images/flags/bulgaria.svg'],
-                    ['TRY', '../src/assets/images/flags/turkey.svg'],
-                    ['CNY', '../src/assets/images/flags/china.svg'],
-                    ['NOK', '../src/assets/images/flags/norway.svg'],
-                    ['NZD', '../src/assets/images/flags/new-zealand.svg'],
-                    ['ZAR', '../src/assets/images/flags/south-africa.svg'],
-                    ['MXN', '../src/assets/images/flags/mexico.svg'],
-                    ['SGD', '../src/assets/images/flags/singapore.svg'],
-                    ['AUD', '../src/assets/images/flags/australia.svg'],
-                    ['ILS', '../src/assets/images/flags/israel.svg'],
-                    ['KRW', '../src/assets/images/flags/south-korea.svg'],
-                    ['PLN', '../src/assets/images/flags/poland.svg']
+                    ['CAD', './assets/images/flags/canada.svg'],
+                    ['HKD', './assets/images/flags/hong-kong-sar-china.svg'],
+                    ['ISK', './assets/images/flags/iceland.svg'],
+                    ['PHP', './assets/images/flags/philippines.svg'],
+                    ['DKK', './assets/images/flags/denmark.svg'],
+                    ['HUF', './assets/images/flags/hungary.svg'],
+                    ['CZK', './assets/images/flags/czechia.svg'],
+                    ['GBP', './assets/images/flags/united-kingdom.svg'],
+                    ['RON', './assets/images/flags/romania.svg'],
+                    ['SEK', './assets/images/flags/sweden.svg'],
+                    ['IDR', './assets/images/flags/india.svg'],
+                    ['INR', './assets/images/flags/indonesia.svg'],
+                    ['BRL', './assets/images/flags/brazil.svg'],
+                    ['RUB', './assets/images/flags/russia.svg'],
+                    ['HRK', './assets/images/flags/croatia.svg'],
+                    ['JPY', './assets/images/flags/japan.svg'],
+                    ['THB', './assets/images/flags/thailand.svg'],
+                    ['CHF', './assets/images/flags/switzerland.svg'],
+                    ['EUR', './assets/images/flags/european-union.svg'],
+                    ['MYR', './assets/images/flags/malaysia.svg'],
+                    ['BGN', './assets/images/flags/bulgaria.svg'],
+                    ['TRY', './assets/images/flags/turkey.svg'],
+                    ['CNY', './assets/images/flags/china.svg'],
+                    ['NOK', './assets/images/flags/norway.svg'],
+                    ['NZD', './assets/images/flags/new-zealand.svg'],
+                    ['ZAR', './assets/images/flags/south-africa.svg'],
+                    ['MXN', './assets/images/flags/mexico.svg'],
+                    ['SGD', './assets/images/flags/singapore.svg'],
+                    ['AUD', './assets/images/flags/australia.svg'],
+                    ['ILS', './assets/images/flags/israel.svg'],
+                    ['KRW', './assets/images/flags/south-korea.svg'],
+                    ['PLN', './assets/images/flags/poland.svg']
 
                 ]);
                 let flagsUrl = [];

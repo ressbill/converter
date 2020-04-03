@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Currency Converter</title>
-    <link rel="icon" href="../src/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
 
 </head>
 <body>
@@ -41,27 +41,28 @@
         </div>
         <form action="#" class="form" id="form">
         <div class="inputs">
-            <input type="number" name="source" step = 10 min="0" value="0.00" id="input">
-            <input type="number" name="calculated" step = 10 min="0" value="0.00" id="output">
+            <input type="number" name="source" step = 10 min="0"  id="input"  placeholder="Enter value" max="999999999">
+            <input type="text" name="calculated" placeholder="Converted value" id="output" disabled>
+
         </div>
             <button type="submit" disabled class="btn btn-submit" id="btn">Save</button>
         </form>
         <div class="reverse">
-            <a href="#" id="convert" class="convert">
-                <img src="../src/assets/images/subway_round-arrow-1.svg" class="svg" alt="reverse">
+            <a href="#" id="convert" class="convert" >
+                <img src="./assets/images/subway_round-arrow-1.svg" class="svg" alt="reverse">
             </a>
         </div>
 
     </div>
-    <div class="history">
+
+    <div class="history invisible" id = "history">
         <h2 class="mb-1 mt-2">Saved Book</h2>
         <div class="marks" id="marks">
-            <div class="marks__header">
+            <div class="marks__header" id="header">
                 <div>From</div><div>To</div><div>Initial value</div><div>Result</div><div>Time</div>
             </div>
-            <div class="marks__mark">
-                <div>USD</div><div>Rub</div><div>150</div><div>1500.32</div><div>4/1/2020</div>
-            </div>
+
+
         </div>
     </div>
 

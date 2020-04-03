@@ -9,6 +9,8 @@ const target = document.getElementById('target');
 const button = document.getElementById('btn');
 const convert = document.getElementById('convert')
 const marks = document.getElementById('marks')
+const history = document.getElementById('history')
+const header = document.getElementById('header')
 
 
 initial.addEventListener('focus', ()=>{
@@ -38,17 +40,23 @@ Currency.createModel('USD').then(model => {
 })
 button.addEventListener('click', (event) => {
         event.preventDefault()
+        history.classList.remove('invisible');
         console.log('save')
-        conversion()
+        conversion(createSaved)
 })
 convert.addEventListener('click', (event) => {
     event.preventDefault()
-    conversion()
+    if (button.disabled === false){
+        conversion()
+    }
+
 })
 utilities.emitter.on('unlocked', ()=>{
-    button.disabled = false;
-    console.log('fired')
-    conversion()
+
+        button.disabled = false;
+        console.log('fired')
+        conversion()
+
 })
 function createTable(data) {
 
@@ -65,21 +73,24 @@ function createTable(data) {
 
 }
 function createSaved(data) {
-    for(let i = 0; i < 5; i++){
-        const mark =  document.createElement('div')
-        mark.classList.add('marks__mark')
-        mark.insertAdjacentHTML('afterbegin', `
-    <div>Rub</div>
-    <div>Rub</div>
-    <div>Rub</div>
-    <div>Rub</div>
-    <div>Rub</div>
+
+    let length = marks.childElementCount;
+    let lastChild = marks.lastChild;
+    if(length > 29){
+        marks.removeChild(lastChild)
+    }
+    const mark =  document.createElement('div')
+    mark.classList.add('marks__mark')
+    mark.insertAdjacentHTML('beforeend', `
+    <div>${data.from}</div>
+    <div>${data.to}</div>
+    <div>${data.initial}</div>
+    <div>${data.result}</div>
+    <div>${data.time}</div>
     
     `)
-        marks.appendChild(mark)
-
-    }
-
+        marks.insertBefore(mark,header.nextSibling )
+        // marks.appendChild(mark)
 }
 
 
