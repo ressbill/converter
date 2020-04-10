@@ -115,20 +115,23 @@ function previousDayRates(dateIsEqual = 0) {
    let date;
    if (dateIsEqual === 0){
       if (today.getDay() === 1){
-         date = getPreviousDate(4)
+         date = getPreviousDate(3)
       }
       if (today.getDay() === 0){
-         date =   getPreviousDate(3)
+         date =   getPreviousDate(2)
       }
-      // if (today.getDay() === 6){
-      //    date =  getPreviousDate(1)
-      // }
+       if (today.getDay() === 2){
+          date =  getPreviousDate(4)
+       }
+       if (today.getDay() === 6){
+           date =  getPreviousDate(3)
+       }
       else{
-         date =  getPreviousDate(4)
+         date =  getPreviousDate(1)
       }
 
-   }// else
-   //   date =   getPreviousDate(3)
+   } else
+      date =   getPreviousDate(2)
 
    const str =  convertedDateForURL(date)
 
