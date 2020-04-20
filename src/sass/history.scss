@@ -7,7 +7,10 @@
   top: 11rem;
   right: 1.55%;
   color: #0e153a;
-
+  @media only screen and (max-width: 700px)  {
+    font-size: 1.3rem;
+    right: 0;
+  }
   @media only screen and (max-width: 1890px)  {
     position: relative;
     display: block;
@@ -18,7 +21,9 @@
     &__mark{
       display: grid;
       grid-template-columns: repeat(4,90px) 150px ;
-
+      @media only screen and (max-width: 700px)  {
+        grid-template-columns: repeat(4, 15vw) 30vw ;
+      }
     }
   }
   .marks__header{
@@ -26,6 +31,9 @@
     margin-bottom: 0.4rem;
     display: grid;
     grid-template-columns: repeat(4,90px) 150px ;
+    @media only screen and (max-width: 700px)  {
+      grid-template-columns: repeat(4, 15vw) 30vw ;
+    }
   }
 
 }

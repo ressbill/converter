@@ -17,19 +17,9 @@ export class Currency{
                 const curValues = Object.values(rates).filter(rate => +rate !== 1);
 
                 let yestData;
-                await previousDayRates()
-                    .then(data => data.json())
-                    .then(data => {
-                        yestData = data
-                    }).then(async () => {
-                        if (yestData.date === data.date) {
-                            await previousDayRates(1).then(data => data.json()).then(data => {
-                                yestData = data
-                            })
-                        }
-
-                    })
-                console.log(yestData)
+                await previousDayRates( 1, data ).then((info)=>{
+                     yestData = info;
+                  })
 
                 const prevRates = yestData.rates;
                 const prevValues = Object.values(prevRates).filter(rate => +rate !== 1);
@@ -43,8 +33,8 @@ export class Currency{
                         trend[i] = './assets/images/bx_bx-trending-down.svg'
 
                     } else {
-                        trend[i] = 'STABILNOST'
-                    }
+                        trend[i] = './assets/images/typcn_waves.svg'
+                        }
                 }
                 const flags = new Map([
                     ['CAD', './assets/images/flags/canada.svg'],
@@ -104,38 +94,26 @@ export class Currency{
                     }]
 
 
+
             })
     }
 }
 
 
 
-function previousDayRates(dateIsEqual = 0) {
-   const today = new Date();
-   let date;
-   if (dateIsEqual === 0){
-      if (today.getDay() === 1){
-         date = getPreviousDate(3)
-      }
-      if (today.getDay() === 0){
-         date =   getPreviousDate(2)
-      }
-       if (today.getDay() === 2){
-          date =  getPreviousDate(4)
-       }
-       if (today.getDay() === 6){
-           date =  getPreviousDate(3)
-       }
-      else{
-         date =  getPreviousDate(1)
-      }
-
-   } else
-      date =   getPreviousDate(2)
-
+function previousDayRates(prevDays, today) {
+  // const today = new Date();
+   let date = getPreviousDate(prevDays)
    const str =  convertedDateForURL(date)
+  return   fetch(`https://api.exchangeratesapi.io/${str}?base=USD`).then(data => data.json())
+      .then(data => {
+          if (data.date === today.date){
+            return   previousDayRates(prevDays + 1 , today)
 
-   return fetch(`https://api.exchangeratesapi.io/${str}?base=USD`);
+          } else {
+            return  data
+          }
+      })
 }
 function convertedDateForURL(date) {
    const year = date.getFullYear();
